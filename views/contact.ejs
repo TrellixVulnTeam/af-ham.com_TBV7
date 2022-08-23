@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceGrounds</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Aboreto">
+
+    <link rel="stylesheet" href="/stylesheets/aimless.css">
+        
+    <style>
+       .navbar-custom {
+            background-color: black;
+            text-align: center;
+
+       }
+
+       .nav-link {
+            padding: 0.25rem 0;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+            margin-left: 1rem;
+            border-bottom: 0.25rem solid transparent;
+            font-family: 'Aboreto';
+        }
+
+        .nav-link:hover{
+            color: rgba(255,255,255,0.5);
+            border-bottom-color:rgba(255,255,255,0.5);
+        }
+
+        .nav-link.active {
+            color: white;
+            border-bottom-color:white;
+        }
+
+        .footer-custom{
+            background-color: black;
+        }
+
+
+        .bg{
+            width: 100%;
+            z-index: 0;
+            }
+
+
+        .para {
+            font-family: "Lucida Sans Typewriter","Lucida Console",Monaco,"Bitstream Vera Sans Mono",monospace;
+            font-weight: 300;
+            font-size: 13px;
+            color: white;
+            line-height: 26px;
+    
+        }
+
+        .row {
+            display: flex;
+            }
+
+        .column-3 {
+            flex: 50%;
+        }
+
+        .column_container{
+            display: flex;
+            width: 959px;
+            margin: 0 auto;
+        }
+        .button a{
+            font-size: 28px;
+            font-family: 'Aboreto', sans-serif;
+            margin-top: 1em;
+            margin-left: auto;
+            margin-right:auto;
+            text-align: center;
+
+            /* Stryling the text and giving it gradiant */
+            color:#ffffff;
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+            /* Make sure text is infront of background images */
+            display:block;
+            position: relative;
+            z-index: 2;
+            }
+        
+
+            .title h1{
+            font-size: 56px;
+            font-family: Aboreto;
+            margin-top:0.5em;
+            margin-left: auto;
+            margin-right:auto;
+            text-align: center;
+
+            /* Stryling the text and giving it gradiant */
+            color:#ffffff;
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+            /* Make sure text is infront of background images */
+            display:block;
+            position: relative;
+            z-index: 3;
+            }
+
+            
+            .caption h4{
+            font-size: 28px;
+            font-family: Aboreto;
+            margin-top:auto;
+            margin-left: auto;
+            margin-right:auto;
+            text-align: center;
+
+            /* Stryling the text and giving it gradiant */
+            color:#ffffff;
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+            /* Make sure text is infront of background images */
+            display:block;
+            position: relative;
+            z-index: 3;
+            }
+
+            .button a{
+            font-size: 28px;
+            font-family: 'Lato', sans-serif;
+            margin-top:0.5em;
+            margin-left: auto;
+            margin-right:auto;
+            text-align: center;
+
+            /* Stryling the text and giving it gradiant */
+            color:#ffffff;
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+            /* Make sure text is infront of background images */
+            display:block;
+            position: relative;
+            z-index: 3;
+            }
+                                        
+    </style>
+
+</head>
+<body class="d-flex flex-column ">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/hamaf/image/upload/v1660957446/afham.com/A-B_khj6tn.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="https://github.com/afham-b/">GITHUB</a>
+                    <a class="nav-link" href="https://replit.com/@ABashir">REPL.IT</a>
+                    <a class="nav-link" href="https://www.linkedin.com/in/afham-bashir">LINKEDIN</a>
+                    <a class="nav-link" href="http://afham.info/">Spacegrounds APP</a>
+                    <a class="nav-link" href="/contact">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    
+
+    <div class="container-fluids flex" style="overflow:scroll">
+       
+           <div class="title">
+            <h1 style="margin-top: 300px;"> Contact & Resume</h1>
+                <div class="caption" >
+                    <h4> 
+                        <p style="font-family: Aboreto ;"> 
+                                afhambashir@yahoo.com  <br> 
+                            <a href="https://github.com/afham-b/" style="color: black;">GITHUB</a> <br> 
+                            <a href="https://replit.com/@ABashir" style="color: black;">REPL.IT</a> <br> 
+                            <a href="https://www.linkedin.com/in/afham-bashir" style="color: black;">LINKEDIN</a> <br> 
+                            <a href="https://github.com/afham-b/resume/raw/main/ABashirResume8.22.pdf" style="color: black;"> Download Resume </a> 
+                            <br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        </p><br>
+                    </h4>
+                </div>
+           </div>
+
+
+           <canvas id="canvas" width="auto" height="auto"></canvas>
+    </div>
+    
+
+
+    <footer class="footer footer-custom py-3 mt-auto" style="
+              text-align: center;
+    "> 
+        <div class="container">
+            
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/hamaf/image/upload/v1660957446/afham.com/A-B_khj6tn.png" alt="" width="30" height="24" class="d-inline-block align-text-top" style="margin-left: 1em;">
+              </a>
+    
+              <span class="text-muted">&copy; AFHAM-B 2022</span>
+        </div>
+    </footer>
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="/javascripts/aimless.js"></script>
+
+
+</body>
+</html>
+<div class="fluid">
+
+</div>

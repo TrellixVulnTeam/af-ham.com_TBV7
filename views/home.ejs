@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceGrounds</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Aboreto">
+        
+    <style>
+       .navbar-custom {
+            background-color: black;
+            text-align: center;
+
+       }
+
+       .nav-link {
+            padding: 0.25rem 0;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+            margin-left: 1rem;
+            border-bottom: 0.25rem solid transparent;
+            font-family: 'Aboreto';
+        }
+
+        .nav-link:hover{
+            color: rgba(255,255,255,0.5);
+            border-bottom-color:rgba(255,255,255,0.5);
+        }
+
+        .nav-link.active {
+            color: white;
+            border-bottom-color:white;
+        }
+
+        .footer-custom{
+            background-color: black;
+        }
+
+
+        .section2 {
+            background-size: cover;
+            /* Background image doesn't tile */
+            background-repeat: no-repeat;
+            /* Set a background color that will be displayed
+            while the background image is loading */
+            background-color: white;
+            
+             height: auto; 
+            position: relative;
+            background-image:url('https://res.cloudinary.com/hamaf/image/upload/v1661138916/afham.com/Ab-section2_bimthw.png') ;
+            
+             background-position:center;
+        }
+        .bg{
+            width: 100%;
+            z-index: 0;
+            }
+
+        .section3 {
+            /* Background image doesn't tile */
+            /* Set a background color that will be displayed
+            while the background image is loading */
+            background-color: white;
+        
+             height: auto; 
+            position: relative;
+            background-image:url('https://res.cloudinary.com/hamaf/image/upload/v1661130140/afham.com/section3_iypd1p.png') ;
+            background-position:center;
+        }
+
+        .section4 {
+            /* Background image doesn't tile */
+            /* Set a background color that will be displayed
+            while the background image is loading */
+            background-color: black;
+            
+             height: 1000px; 
+            position: relative;
+            background-position:center;
+        }
+
+        .section5 {
+          flex-wrap: wrap;
+            /* Background image doesn't tile */
+            /* Set a background color that will be displayed
+            while the background image is loading */
+           
+            background-size: cover;
+            /* Background image doesn't tile */
+            background-repeat: repeat;
+            /* Set a background color that will be displayed
+            while the background image is loading */
+            height: auto; 
+            position: relative;
+            background-position:center;
+            background-image:url('https://res.cloudinary.com/hamaf/image/upload/v1661191146/afham.com/Ab-parralaz_kacozr.png');
+            background-position:center;
+    
+            background-color: black;
+            color: black;
+        }
+
+        .section6 {
+            /* Background image doesn't tile */
+            /* Set a background color that will be displayed
+            while the background image is loading */
+            background-color: white;
+        
+            height: auto; 
+            position: relative;
+        }
+
+
+
+        .para {
+            font-family: "Lucida Sans Typewriter","Lucida Console",Monaco,"Bitstream Vera Sans Mono",monospace;
+            font-weight: 300;
+            font-size: 13px;
+            color: white;
+            line-height: 26px;
+    
+        }
+
+        .row {
+            display: flex;
+            }
+
+        .column-3 {
+            flex: 50%;
+        }
+
+        .column_container{
+            display: flex;
+            width: 959px;
+            margin: 0 auto;
+        }
+        .button a{
+            font-size: 28px;
+            font-family: 'Aboreto', sans-serif;
+            margin-top: 1em;
+            margin-left: auto;
+            margin-right:auto;
+            text-align: center;
+
+            /* Stryling the text and giving it gradiant */
+            color:#ffffff;
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+            /* Make sure text is infront of background images */
+            display:block;
+            position: relative;
+            z-index: 2;
+            }
+        
+            .grid-ish{
+            flex: 1 1 10em;
+            }
+                              
+    </style>
+
+</head>
+<body class="d-flex flex-column " style="overflow:scroll">
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark navbar-custom justify-content-center">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/hamaf/image/upload/v1660957446/afham.com/A-B_khj6tn.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="https://github.com/afham-b/">GITHUB</a>
+                    <a class="nav-link" href="https://replit.com/@ABashir">REPL.IT</a>
+                    <a class="nav-link" href="https://www.linkedin.com/in/afham-bashir">LINKEDIN</a>
+                    <a class="nav-link" href="http://afham.info/">Spacegrounds APP</a>
+                    <a class="nav-link" href="/contact">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="section2 flex">
+        
+        <p style="margin-top: 960px;  margin-left: auto; margin-right:auto;  text-align: center; font-weight: bolder; margin-bottom: 100px;" class="para">
+            I am an undergrad Astrophysics student 
+            <br> at Columbia University School of General Studies. 
+            <br> I started programming with C++ with Data Structures & Algorithms,
+            <br> learned x86 assembly language, alongside Data Analysis in RStudio,
+            <br> and have been learning the Mern-stack.  
+        </p>
+    </div>
+
+    <div class="section3 row">
+        <h1 style="
+        color: black; 
+        font-family: Aboreto; 
+        margin-top: 100px;
+        margin-left: auto;
+        margin-bottom: auto;
+        margin-right:auto;
+        text-align: center;
+        font-size: 4em;
+        flex-wrap: wrap;
+        "> Education & Experience</h1>
+
+        <div class="row grid-ish">
+            <div class="column_container" style="padding-left: 10px; padding-right:10px">
+            <div class="column-3">
+                <br><br><br><br>
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        Columbia University School of General Studies 
+                    </mark> <br>
+                    2022-Current. Astrophysics B.A 
+                </p>
+                <br>
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        Northampton Community College 
+                    </mark> <br>
+                    2018-2021. Bethlehem, PA 
+                    <br> 
+                    2020 Associates with Honors <br> Physics & Mathematics
+                    <br> 
+                    2021 Associates with Honors <br> Computer Science
+                </p> <br> 
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        Colonia High, NJ  
+                    </mark> <br>
+                    2015-2017. HS Diploma.<br> 740 Math. 730 Reading SAT 
+                </p><br> 
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        Stanton College Prep 
+                    </mark> <br>
+                    2013-2015. Jacksonville, FL 
+                </p>
+            </div>
+
+            <div class="column-3">
+                <br><br><br><br>
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        College Math & Physics Tutor
+                    </mark> <br>
+                    08/20-08/22. Northampton Community College. <br> 
+                    Tutor for Multivaraiable Calc, Statistics, RStudio. C++. Physics & Statics. Organic Chem. 
+                </p> <br> 
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        Computer Science Mentor  
+                    </mark> <br>
+                    08/20-05/21. NSF CyberSecurity Grant. <br> 
+                    Mentored and tutored new, current, and international CS students at my college. Providing them with 
+                    resources and guidance throught their CS classes and projects. 
+                </p><br> 
+                <p style="font-family: Aboreto ;"> 
+                    <mark style="background-color: #fff899; color: black;">
+                        Liberty Science Center Intern
+                    </mark> <br>
+                    08/16-04/17. Jersery City, NJ. <br> 
+                    Worked as floor staff educating visitors on various
+                    exhibits and shows in the largest Planterium in the western hemisphere. Worked with large crowds or specific visitor groups as needed.
+                </p> <br> <br><br>
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+
+
+    <div class="section4">
+        <div class="wrapper">
+            <div id="universe" style="z-index: 0;">
+
+                <div class="button">
+                    <a href="http://afham.info/"> Click Here to View My SpaceGrounds App Project</a>
+                   </div>
+
+
+            <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+            
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+                  <script id="rendered-js">
+            function getMat(color) {
+              // our material is a phong material, with no shininess (highlight) and a black specular
+              return new THREE.MeshStandardMaterial({
+                color: color,
+                roughness: .9,
+                transparent: true,
+                opacity: 0,
+                emissive: 0x270000,
+                shading: THREE.FlatShading });
+            
+            }
+            
+            var Colors = {
+              red: 0xf85051,
+              orange: 0xea8962,
+              yellow: 0xdacf75,
+              beige: 0xccc58f,
+              grey: 0xbab7a1,
+              blue: 0x4379a8,
+              ocean: 0x4993a8,
+              green: 0x24a99b };
+            
+            
+            var colorsLength = Object.keys(Colors).length;
+            
+            function randomRange(min, max) {
+              return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            
+            function getRandomColor() {
+              var colIndx = Math.floor(Math.random() * colorsLength);
+              var colorStr = Object.keys(Colors)[colIndx];
+              return Colors[colorStr];
+            }
+            
+            function shiftPosition(pos, radius) {
+              if (Math.abs(pos) < radius) {
+                if (pos >= 0) {
+                  return pos + radius;
+                } else {
+                  return pos - radius;
+                }
+              } else {
+                return pos;
+              }
+            }
+            
+            // Default parameters
+            var parameters = {
+              minRadius: 30,
+              maxRadius: 50,
+              minSpeed: .015,
+              maxSpeed: .025,
+              particles: 500,
+              minSize: .1,
+              maxSize: 2 };
+            
+            
+            // For a THREEJS project we need at least
+            // a scene
+            // a renderer
+            // a camera
+            // a light (1 or many)
+            // a mesh (an object to display)
+            
+            var scene, renderer, camera, light;
+            var stars = [];
+            var nbPlanetsMax = 4;
+            var planets = [];
+            var WIDTH = window.innerWidth,
+            HEIGHT = window.innerHeight;
+            
+            
+            // initialise the world
+            function initWorld() {
+              scene = new THREE.Scene();
+              camera = new THREE.PerspectiveCamera(75, WIDTH / HEIGHT, .1, 2000);
+              camera.position.z = 100;
+            
+              //
+              // THE RENDERER
+              //
+              renderer = new THREE.WebGLRenderer({
+                alpha: true,
+                antialias: true });
+            
+              renderer.setSize(WIDTH, HEIGHT);
+              renderer.shadowMap.enabled = true;
+            
+              container = document.getElementById('universe');
+              container.appendChild(renderer.domElement);
+            
+            
+              // Lights
+              ambientLight = new THREE.AmbientLight(0x663344, 2);
+              scene.add(ambientLight);
+            
+              light = new THREE.DirectionalLight(0xffffff, 1.5);
+              light.position.set(200, 100, 200);
+              light.castShadow = true;
+              light.shadow.camera.left = -400;
+              light.shadow.camera.right = 400;
+              light.shadow.camera.top = 400;
+              light.shadow.camera.bottom = -400;
+              light.shadow.camera.near = 1;
+              light.shadow.camera.far = 1000;
+              light.shadow.mapSize.width = 2048;
+              light.shadow.mapSize.height = 2048;
+            
+              scene.add(light);
+            
+            
+              //
+              // HANDLE SCREEN RESIZE
+              //
+              window.addEventListener('resize', handleWindowResize, false);
+            
+              // Creating firts planets
+              for (var i = 0; i < nbPlanetsMax; i++) {
+                planets.push(new Planet(-2000 / nbPlanetsMax * i - 500));
+              }
+              addStarts();
+              loop();
+            
+            }
+            
+            function animateStars(z) {
+            
+              // loop through each star
+              for (var i = 0; i < stars.length; i++) {
+            
+                star = stars[i];
+                // if the particle is too close move it to the back
+                if (star.position.z > z) star.position.z -= 2000;
+            
+              }
+            
+            }
+            
+            function addStarts() {
+            
+              for (var z = -2000; z < 0; z += 20) {
+            
+                var geometry = new THREE.SphereGeometry(0.5, 32, 32);
+                var material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+                var sphere = new THREE.Mesh(geometry, material);
+            
+                sphere.position.x = randomRange(-1 * Math.floor(WIDTH / 2), Math.floor(WIDTH / 2));
+                sphere.position.y = randomRange(-1 * Math.floor(HEIGHT / 2), Math.floor(HEIGHT / 2));
+            
+                // Then set the z position to where it is in the loop (distance of camera)
+                sphere.position.z = z;
+            
+                // scale it up a bit
+                sphere.scale.x = sphere.scale.y = 2;
+            
+                //add the sphere to the scene
+                scene.add(sphere);
+            
+                //finally push it to the stars array
+                stars.push(sphere);
+              }
+            }
+            
+            var Planet = function (z) {
+              // the geometry of the planet is a tetrahedron
+              this.planetRadius = randomRange(12, 30);
+              var planetDetail = randomRange(2, 3);
+              var geomPlanet = new THREE.TetrahedronGeometry(this.planetRadius, planetDetail);
+            
+              var noise = randomRange(1, 5);
+              for (var i = 0; i < geomPlanet.vertices.length; i++) {
+                var v = geomPlanet.vertices[i];
+                v.x += -noise / 2 + Math.random() * noise;
+                v.y += -noise / 2 + Math.random() * noise;
+                v.z += -noise / 2 + Math.random() * noise;
+              }
+            
+              // create a new material for the planet
+              var color = getRandomColor();
+              var matPlanet = getMat(color);
+              // create the mesh of the planet
+              this.planet = new THREE.Mesh(geomPlanet, matPlanet);
+            
+              this.ring = new THREE.Mesh();
+              this.nParticles = 0;
+            
+              // create the particles to populate the ring
+              this.updateParticlesCount();
+            
+              // Create a global mesh to hold the planet and the ring
+              this.mesh = new THREE.Object3D();
+              this.mesh.add(this.planet);
+              this.mesh.add(this.ring);
+            
+              this.planet.castShadow = true;
+              this.planet.receiveShadow = true;
+            
+              // update the position of the particles => must be moved to the loop
+              this.mesh.rotation.x = (Math.random() * 2 - 1) * 2 * Math.PI;
+              this.mesh.rotation.z = (Math.random() * 2 - 1) * 2 * Math.PI;
+            
+              var posX = randomRange(-1 * Math.floor(WIDTH / 4), Math.floor(WIDTH / 4));
+              var posY = randomRange(-1 * Math.floor(HEIGHT / 4), Math.floor(HEIGHT / 4));
+              posX = shiftPosition(posX, this.planetRadius);
+              posY = shiftPosition(posY, this.planetRadius);
+            
+              this.mesh.position.set(posX, posY, z);
+              scene.add(this.mesh);
+            };
+            Planet.prototype.destroy = function () {
+              scene.remove(this.mesh);
+            };
+            Planet.prototype.updateParticlesCount = function () {
+              var parameters = {
+                minRadius: randomRange(this.planetRadius + 10, 60),
+                maxRadius: randomRange(40, 70),
+                minSpeed: randomRange(0, 5) * 0.1 + randomRange(0, 9) * 0.01,
+                maxSpeed: randomRange(0, 5) * 0.1 + randomRange(0, 9) * 0.01,
+                particles: randomRange(0, 1) * randomRange(20, 30),
+                minSize: randomRange(1, 3) + randomRange(0, 9) * 0.1,
+                maxSize: randomRange(1, 3) + randomRange(0, 9) * 0.1 };
+            
+            
+              if (this.nParticles < parameters.particles) {
+                // Remove particles
+                for (var i = this.nParticles; i < parameters.particles; i++) {
+                  var p = new Particle();
+                  p.mesh.rotation.x = Math.random() * Math.PI;
+                  p.mesh.rotation.y = Math.random() * Math.PI;
+                  p.mesh.position.y = -2 + Math.random() * 4;
+                  this.ring.add(p.mesh);
+                }
+              } else {
+                // add particles
+                while (this.nParticles > parameters.particles) {
+                  var m = this.ring.children[this.nParticles - 1];
+                  this.ring.remove(m);
+                  m.userData.po = null;
+                  this.nParticles--;
+                }
+              }
+              this.nParticles = parameters.particles;
+            
+              // We will give a specific angle to each particle
+              // to cover the whole ring we need to
+              // dispatch them regularly
+              this.angleStep = Math.PI * 2 / this.nParticles;
+              this.updateParticlesDefiniton();
+            };
+            
+            // Update particles definition
+            Planet.prototype.updateParticlesDefiniton = function () {
+            
+              for (var i = 0; i < this.nParticles; i++) {
+                var m = this.ring.children[i];
+                var s = parameters.minSize + Math.random() * (parameters.maxSize - parameters.minSize);
+                m.scale.set(s, s, s);
+            
+                // set a random distance
+                m.userData.distance = parameters.minRadius + Math.random() * (parameters.maxRadius - parameters.minRadius);
+            
+                // give a unique angle to each particle
+                m.userData.angle = this.angleStep * i;
+                // set a speed proportionally to the distance
+                m.userData.angularSpeed = rule3(m.userData.distance, parameters.minRadius, parameters.maxRadius, parameters.minSpeed, parameters.maxSpeed);
+              }
+            };
+            
+            var Particle = function () {
+              // Size of the particle, make it random
+              var s = 1;
+            
+              // geometry of the particle, choose between different shapes
+              var geom,
+              random = Math.random();
+            
+              if (random < .25) {
+                // Cube
+                geom = new THREE.BoxGeometry(s, s, s);
+            
+              } else if (random < .5) {
+                // Pyramid
+                geom = new THREE.CylinderGeometry(0, s, s * 2, 4, 1);
+            
+              } else if (random < .75) {
+                // potato shape
+                geom = new THREE.TetrahedronGeometry(s, 2);
+            
+              } else {
+                // thick plane
+                geom = new THREE.BoxGeometry(s / 6, s, s); // thick plane
+              }
+              // color of the particle, make it random and get a material
+              var color = getRandomColor();
+              var mat = getMat(color);
+            
+              // create the mesh of the particle
+              this.mesh = new THREE.Mesh(geom, mat);
+              this.mesh.receiveShadow = true;
+              this.mesh.castShadow = true;
+              this.mesh.userData.po = this;
+            };
+            
+            
+            // Update particles position
+            Planet.prototype.updateParticlesRotation = function () {
+            
+              // increase the rotation of each particle
+              // and update its position
+            
+              for (var i = 0; i < this.nParticles; i++) {
+                var m = this.ring.children[i];
+                // increase the rotation angle around the planet
+                m.userData.angle += m.userData.angularSpeed;
+            
+                // calculate the new position
+                var posX = Math.cos(m.userData.angle) * m.userData.distance;
+                var posZ = Math.sin(m.userData.angle) * m.userData.distance;
+                m.position.x = posX;
+                m.position.z = posZ;
+            
+                //*
+                // add a local rotation to the particle
+                m.rotation.x += Math.random() * .05;
+                m.rotation.y += Math.random() * .05;
+                m.rotation.z += Math.random() * .05;
+                //*/
+              }
+            };
+            
+            function addPlanet(z) {
+              planets.push(new Planet(z));
+            }
+            
+            function loop() {
+              var horizon = -2000 + camera.position.z;
+              for (var i = 0; i < planets.length; i++) {
+                if (planets[i].mesh.position.z > camera.position.z) {
+                  planets[i].destroy();
+                  planets.splice(i, 1);
+                }
+            
+                // If the planet is arriving
+                if (planets[i].mesh.position.z > horizon && planets[i].planet.material.opacity < 1) {
+                  planets[i].planet.material.opacity += 0.005;
+                  for (var j = 0; j < planets[i].mesh.children[1].children.length; j++) {
+                    planets[i].mesh.children[1].children[j].material.opacity += 0.005;
+                  }
+                }
+              }
+            
+            
+              // Adding stars
+              animateStars(camera.position.z);
+            
+              if (planets.length < nbPlanetsMax) {
+                addPlanet(camera.position.z - 2000);
+              }
+            
+              for (var i = 0; i < planets.length; i++) {
+                planets[i].planet.rotation.y -= 0.01;
+                planets[i].updateParticlesRotation();
+              }
+            
+              camera.position.z -= 3;
+            
+              //
+              // RENDER !
+              //
+              renderer.render(scene, camera);
+            
+              //
+              // REQUEST A NEW FRAME
+              //
+              requestAnimationFrame(loop);
+            }
+            
+            function handleWindowResize() {
+              // Recalculate Width and Height as they had changed
+              HEIGHT = window.innerHeight;
+              WIDTH = window.innerWidth;
+            
+              // Update the renderer and the camera
+              renderer.setSize(WIDTH, HEIGHT);
+              camera.aspect = WIDTH / HEIGHT;
+              camera.updateProjectionMatrix();
+            }
+            
+            initWorld();
+            
+        
+            function rule3(v, vmin, vmax, tmin, tmax) {
+              var nv = Math.max(Math.min(v, vmax), vmin);
+              var dv = vmax - vmin;
+              var pc = (nv - vmin) / dv;
+              var dt = tmax - tmin;
+              var tv = tmin + pc * dt;
+              return tv;
+            
+            }
+            //# sourceURL=pen.js
+                </script>
+                <canvas width="355" height="550" style="width: 355px; height: 550px;"></canvas>
+            
+            
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section5">
+        <a href="http://afham.info/">
+            <h1> <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  </h1>
+        </a>
+    </div>
+
+    <div class="section6 row">
+        
+            <h1 style="
+            color: black; 
+            font-family: Aboreto; 
+            margin-top: 50px;
+            margin-left: auto;
+            margin-bottom: auto;
+            margin-right:auto;
+            text-align: center;
+            font-size: 4em;
+            "> CONACT & Résumé</h1>
+    
+            <div class="row flex-column">
+                <div class="column_container">
+                  <div class="column-2 flex-column">
+                    <br><br><br><br>
+                    <p style="font-family: Aboreto ;"> 
+                        <mark style="background-color: rgba(128, 128, 128, 0.288); color: black;">
+                            Afham Bashir
+                        </mark> <br>
+                        Undergrad AstroPhysics Student <br> 
+                        Columbia University School of General Studies. <br> 
+                    </p> <br> 
+                    <p style="font-family: Aboreto ;"> 
+                        <mark style="background-color: rgba(128, 128, 128, 0.288); color: black;">
+                            afhambashir@yahoo.com  
+                        </mark> <br>
+                        <a href="https://github.com/afham-b/" style="color: black;">GITHUB</a> <br> 
+                        <a href="https://replit.com/@ABashir" style="color: black;">REPL.IT</a> <br> 
+                        <a href="https://www.linkedin.com/in/afham-bashir" style="color: black;">LINKEDIN</a> <br> 
+                        <a href="http://afham.info/" style="color: black;">Spacegrounds APP</a> <br> 
+                    </p><br>
+                    <p style="font-family: Aboreto ;"> 
+                      <mark style="background-color: rgba(128, 128, 128, 0.288); color: black;">
+                        <a href="https://github.com/afham-b/resume/raw/main/ABashirResume8.22.pdf" style="color: black;"> Download Resume </a> <br>
+                      </mark> <br>
+                       
+                  </p><br>
+                </div>
+
+                <div class="column-2 flex">
+                    <img src="https://res.cloudinary.com/hamaf/image/upload/v1661150968/afham.com/giphy_1_pqozkr.gif" alt="" style="-webkit-filter: invert(100%);">
+                </div>
+    
+              
+    
+            </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <footer class="footer footer-custom py-3 mt-auto" style="
+              text-align: center;
+    "> 
+        <div class="container">
+            
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/hamaf/image/upload/v1660957446/afham.com/A-B_khj6tn.png" alt="" width="30" height="24" class="d-inline-block align-text-top" style="margin-left: 1em;">
+              </a>
+    
+              <span class="text-muted">&copy; AFHAM-B 2022</span>
+        </div>
+    </footer>
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+<div class="fluid">
+
+</div>
